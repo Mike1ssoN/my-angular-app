@@ -4,12 +4,14 @@ import {IProduct} from "../../models/product";
 
 @Component({
 
-  selector:'app-product',
-  templateUrl:'product-component.html'
+  selector: 'app-product',
+  templateUrl: 'product-component.html'
 })
-export  class  ProductComponent{
+export class ProductComponent {
 
-  @Input() product:IProduct
+  @Input() product: IProduct
+
+  details: boolean = false;
 
 }
 

@@ -1,5 +1,23 @@
 ﻿<div class="py-4 px-5 border flex-column align-items-sm-center">
-<img [src]="product.image" [alt]="product.title" class="w-25 rounded mx-auto d-block">
+  <img [src]="product.image" [alt]="product.title" class="w-25 rounded mx-auto d-block">
   <h3 class="mb-2 text-lg-center text-center">{{product.title }}</h3>
-  <p class="text-center"> Price: <span class="font-monospace text-center te">{{product.price| currency}}</span> </p>
+
+  <p class="text-center"> Price: <span class="font-monospace text-center te">{{product.price| currency}}</span></p>
+
+  <button
+    class="border py-2 px-4 rounded bg-info"
+    [ngClass]="{
+    'bg-info': !details,
+    'bg-secondary': details
+    }"
+    (click)="details = !details">
+    {{details ? 'Hide' : 'Show'}} Details
+  </button>
+  <div *ngIf="details">
+    <p>{{product.description}}</p>
+    <p> Rate: <span [ngStyle]="{fontWeight:'bold'}">
+      {{product.rating.rate| number:'1.2-4'}}
+    </span></p>
+  </div>
+
 </div>
